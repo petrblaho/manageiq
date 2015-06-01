@@ -269,6 +269,12 @@ class MiqSshUtil
     MiqSockUtil.getFullyQualifiedDomainName
 
     begin
+      $log.info "*"*80 if $log
+      $log.info "ENV:" if $log
+      ENV.keys.sort.map do |key|
+        $log.info "#{key.inspect} : #{ENV[key].inspect}" if $log
+      end
+      $log.info "*"*80 if $log
       Net::SSH.start(@host, @user, @options) do |ssh|
         yield(ssh)
       end
