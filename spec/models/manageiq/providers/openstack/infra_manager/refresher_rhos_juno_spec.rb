@@ -109,7 +109,6 @@ describe ManageIQ::Providers::Openstack::InfraManager::Refresher do
     end
   end
 
-
   def assert_table_counts_without_overcloud
     expect(ExtManagementSystem.count).to         eq 2
     expect(Vm.count).to                          eq 0
